@@ -38,14 +38,6 @@
 .CurrentEpisode {
   text-align: center;
 
-  @media (max-height: 800px) {
-    & {
-      width: 80%;
-      height: 80%;
-      padding-top: 1rem;
-    }
-  }
-
   img {
     border-radius: 1.5rem;
   }
@@ -65,6 +57,22 @@
     opacity: 0.6;
     line-height: 1.5rem;
     color: #dccdff;
+  }
+
+  @media (max-height: 800px) {
+    & {
+      width: 80%;
+      height: 80%;
+      padding-top: 1rem;
+
+      span {
+        display: none;
+      }
+
+      strong {
+        padding-bottom: 1.5rem;
+      }
+    }
   }
 }
 

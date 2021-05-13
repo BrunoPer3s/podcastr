@@ -19,7 +19,7 @@ export function DarkThemeProvider ({children, isAlreadyDark} : DarkThemeProvider
 
   useEffect(() => {
     const { 'isDark': isDarkTheme } = parseCookies();
-    setIsDark(Boolean(Number(isDarkTheme)))
+    setIsDark(Boolean(Number(isDarkTheme)));
 
   }, [])
 
