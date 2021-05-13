@@ -14,6 +14,7 @@ import { useDarkTheme } from "../hooks/DarkThemeContext";
 
 import { AiFillFire } from 'react-icons/ai';
 import { FiRadio } from 'react-icons/fi';
+import Cookies from "js-cookie";
 
 interface Episode {
   id: string;
@@ -122,7 +123,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const response = await api.get("episodes", {
     params: {
       _limit: 12,
@@ -154,8 +155,12 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       latestEpisodes,
-      allEpisodes,
+      allEpisodes
     },
     revalidate: 60 * 60 * 8,
   };
 };
+
+
+
+

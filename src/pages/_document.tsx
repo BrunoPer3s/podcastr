@@ -1,3 +1,4 @@
+import { GetServerSideProps } from 'next';
 import Document, {Html, Main, Head, NextScript, DocumentContext} from 'next/document';
 import { ServerStyleSheet } from "styled-components";
 
@@ -44,3 +45,6 @@ export default class extends Document  {
     )
   }
 }
+
+
+

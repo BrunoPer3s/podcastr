@@ -1,6 +1,6 @@
 import { format, parseISO } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/dist/client/router";
 import { api } from "../../api";
 import { convertDurationToTimeString } from "../../utils/convertDurationToTimeString";
@@ -92,7 +92,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params;
   const { data } = await api.get(`/episodes/${slug}`);
-
+  
   const episode = {
     id: data.id,
     title: data.title,
@@ -113,3 +113,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     revalidate: 60 * 60 * 24, // 24 hours
   };
 };
+
+
+
+
